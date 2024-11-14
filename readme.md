@@ -25,6 +25,13 @@ You can install them using:
 pip install rasterio==1.3.8 aiohttp==3.8.5 imageio==2.26.0 geopandas==1.0.1 tqdm==4.64.1
 ```
 
+## Works with Multiple Map Layers – Just plug in the TMS link template you need, and go! 
+
+   - **Google Maps** (Roads): `https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}`
+   - **Google Satellite**: `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}`
+   - **Google Satellite Hybrid**: `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}`
+   - **Google Terrain**: `https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}`
+   - **Google Roads Overlay**: `https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}`
 ## Running the Script with User Inputs
 
 Before running the script, make sure to review and set the user input parameters in `download_data_grid_wise.py`. 
@@ -34,7 +41,7 @@ In the script, you can adjust the following parameters:
 
 ```python
 # Define the base URL for the tiles
-TILE_URL_TEMPLATE = "https://krishi-dss.gov.in/krishi-dss-python/portal/visulization/wms/8e0bd8191847931e115f6d1e14f82064-9694886ba8b0788d6e59f5c41afea3dd/{z}/{x}/{y}"
+TILE_URL_TEMPLATE = "https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}"
 
 # Parameters
 zoom_level = 16       # The zoom level for the tiles

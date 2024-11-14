@@ -3,7 +3,7 @@ from downloader_async import *
 import time, os
 
 # Define the base URL for the tiles
-TILE_URL_TEMPLATE = "https://krishi-dss.gov.in/krishi-dss-python/portal/visulization/wms/8e0bd8191847931e115f6d1e14f82064-9694886ba8b0788d6e59f5c41afea3dd/{z}/{x}/{y}"
+TILE_URL_TEMPLATE = "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
 
 # params
 zoom_level = 16
@@ -30,7 +30,7 @@ for i, row in gdf.iterrows():
     y_range = (row1, row2) if row1 < row2 else (row2, row1) 
 
     # EXPORT 
-    output_file = os.path.join(output_folder,f'Jute_{x_range}_{y_range}_{zoom_level}.tif')
+    output_file = os.path.join(output_folder,f'map4_{x_range}_{y_range}_{zoom_level}.tif')
     asyncio.run(fetch_and_merge_tiles(TILE_URL_TEMPLATE, zoom_level ,x_range, y_range, n_tasks ,output_file))
     print(f"Elapsed time: {time.time() - start_time} seconds")
 
