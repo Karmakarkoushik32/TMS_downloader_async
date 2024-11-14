@@ -24,6 +24,8 @@ for i, row in gdf.iterrows():
     # CALCULATE ROW COL RANGE
     row1, col1 = latlon_to_rowcol(*extent[:2][::-1], zoom_level)
     row2, col2 = latlon_to_rowcol(*extent[2:][::-1], zoom_level)
+    col1, col2 = (col1, col2 +1) if col1 == col2 else (col1, col2)
+    row1, row2 = (row1, row2 +1) if row1 == row2 else (row1, row2)
     x_range = (col1, col2) if col1 < col2 else (col2, col1) 
     y_range = (row1, row2) if row1 < row2 else (row2, row1) 
 
