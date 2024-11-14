@@ -47,12 +47,12 @@ TILE_URL_TEMPLATE = "https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}"
 zoom_level = 16       # The zoom level for the tiles
 n_tasks = 100         # Number of parallel download tasks
 
-# Select output directory
-output_folder = './output'  # Folder where downloaded data will be saved
 ```
 
 To download data grid-wise, run the following command:
 
 ```bash
 python download_data_grid_wise.py
+OR 
+python download_single_data.py
 ```
